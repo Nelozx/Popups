@@ -17,7 +17,7 @@ Popups is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'Popups', :git => 'https://github.com/Nelozx/Popups.git'
+pod 'Popups'
 ```
 
 
