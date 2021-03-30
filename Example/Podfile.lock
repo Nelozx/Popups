@@ -1,0 +1,23 @@
+PODS:
+  - Popups (0.0.1)
+  - SnapKit (4.2.0)
+
+DEPENDENCIES:
+  - Popups (from `../`)
+  - SnapKit
+
+SPEC REPOS:
+  trunk:
+    - SnapKit
+
+EXTERNAL SOURCES:
+  Popups:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Popups: 3b20cd178889241dab9711b119fccf18fa3ee519
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+
+PODFILE CHECKSUM: fad2bd040fbff58a9a45bfacd11df5182b788fa3
+
+COCOAPODS: 1.10.1

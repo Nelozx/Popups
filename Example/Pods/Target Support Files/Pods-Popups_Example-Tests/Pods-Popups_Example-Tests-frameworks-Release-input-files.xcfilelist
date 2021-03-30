@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/Pods-Popups_Example-Tests/Pods-Popups_Example-Tests-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Popups/Popups.framework
+${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework
