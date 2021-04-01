@@ -8,33 +8,39 @@
 
 import UIKit
 import Popups
-import SnapKit
 
 class ShowViewController: UIViewController, PopupsProtocol {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+    self.view.backgroundColor = .green
     let ScreenW = UIScreen.main.bounds.width
     let containerView = UIView(frame:.zero)
     containerView.backgroundColor = .white
     view.addSubview(containerView)
     
-    containerView.snp.makeConstraints {
-      $0.leading.equalTo(20)
-      $0.trailing.equalTo(-20)
-      $0.height.equalTo(ScreenW-40)
-      $0.centerY.equalToSuperview().offset(-50)
-    }
+    containerView.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+      containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+      containerView.heightAnchor.constraint(equalToConstant: ScreenW-40),
+      containerView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -50)
+    ])
     
     let btn = UIButton(frame: .zero)
     btn.setTitle("BACK", for: .normal)
     btn.setTitleColor(.systemRed, for: .normal)
     btn.addTarget(self, action: #selector(click), for: .touchUpInside)
     containerView.addSubview(btn)
-    btn.snp.makeConstraints {
-      $0.center.equalToSuperview()
-    }
+    btn.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      btn.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      btn.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+    ])
+  }
+  
+  private func makeConstraints() {
+    
   }
   
   @objc func click() {

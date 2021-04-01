@@ -36,21 +36,24 @@ class ShowTestView: UIView, PopupsProtocol {
     super.init(frame: frame)
     
     self.backgroundColor = .gray
-    
     self.addSubview(label)
     self.addSubview(backItem)
+    makeConstraints()
+  }
+  
+  private func makeConstraints() {
+    label.translatesAutoresizingMaskIntoConstraints = false
+    backItem.translatesAutoresizingMaskIntoConstraints = false
     
+    NSLayoutConstraint.activate([
+      label.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+      label.centerXAnchor.constraint(equalTo: centerXAnchor)
+    ])
     
-    label.snp.makeConstraints {
-      $0.top.equalTo(10)
-      $0.centerX.equalToSuperview()
-    }
-    backItem.snp.makeConstraints {
-      $0.top.equalTo(label.snp.bottom).offset(10)
-      $0.centerX.equalToSuperview()
-      
-    }
-    
+    NSLayoutConstraint.activate([
+      backItem.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 10),
+      backItem.centerXAnchor.constraint(equalTo: centerXAnchor)
+    ])
   }
   
   required init?(coder: NSCoder) {

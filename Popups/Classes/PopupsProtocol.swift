@@ -17,7 +17,7 @@ extension PopupsProtocol where Self: UIViewController {
     return self
   }
   public var offset: CGPoint {
-    return CGPoint(x: 0, y: 0)
+    return .zero
   }
 }
 
@@ -31,7 +31,7 @@ extension PopupsProtocol where Self: UIView {
   }
   
   public var offset: CGPoint {
-    return CGPoint(x: 0, y: 0)
+    return .zero
   }
 }
 
@@ -57,10 +57,13 @@ private class ContainerViewController: UIViewController, PopupsProtocol {
   func setupContentView() {
     view.addSubview(contentView)
     contentView.translatesAutoresizingMaskIntoConstraints = false
-    contentView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: contentView.offset.y).isActive = true
-    contentView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: contentView.offset.x).isActive = true
-    contentView.widthAnchor.constraint(equalToConstant: contentView.frame.size.width).isActive = true
-    contentView.heightAnchor.constraint(equalToConstant: contentView.frame.size.height).isActive = true
+    NSLayoutConstraint.activate([
+      contentView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: contentView.offset.y),
+      contentView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: contentView.offset.x),
+      contentView.widthAnchor.constraint(equalToConstant: contentView.frame.size.width),
+      contentView.heightAnchor.constraint(equalToConstant: contentView.frame.size.height)
+    ])
+    
   }
 }
 
